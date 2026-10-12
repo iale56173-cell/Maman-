@@ -17,10 +17,13 @@
     "firstStep": "Note trois choses qui occupent ton esprit. Entoure celle qui peut attendre aujourd’hui.",
     "plannedLessons": 9,
     "advantages": [
-      "Pauses de respiration simples, sans forcer",
+      "9 leçons courtes pour avancer à ton rythme",
+      "Pauses de respiration guidées, sans forcer",
       "Mini-méditations pour revenir au moment présent",
-      "Fiches pour alléger la charge mentale",
-      "Rituels courts pour une semaine plus respirable"
+      "Fiches pratiques pour cartographier ta charge mentale",
+      "Rituels courts pour installer une semaine plus légère",
+      "Carnet personnel à garder sur ton appareil",
+      "Accès illimité à ton rythme, sans pression"
     ],
     "modules": [
       {
@@ -68,10 +71,15 @@
     "firstStep": "Complète cette phrase : « Cette semaine, j’aimerais avoir plus de marge pour… »",
     "plannedLessons": 12,
     "advantages": [
-      "Respiration de recentrage avant une conversation",
+      "12 leçons structurées pour avancer en profondeur",
+      "Exercices pratiques pour dire non avec tes propres mots",
+      "Respiration de recentrage avant chaque conversation difficile",
       "Méditations guidées autour de la confiance et des besoins",
-      "Exercices pour dire non et poser une limite",
-      "Carnet de phrases repères et bilans personnels"
+      "Carnet de phrases repères, prêt à utiliser au quotidien",
+      "Bilans personnels pour mesurer ta progression",
+      "Conversations préparées pour les situations du travail et de la maison",
+      "Accès illimité à ton rythme, avec relecture possible à tout moment",
+      "Communauté privée d’entraide entre participantes"
     ],
     "modules": [
       {
@@ -123,10 +131,16 @@
     "firstStep": "Écris une envie qui t’appartient, même petite. Puis note ce que tu pourrais en essayer sans tout bouleverser.",
     "plannedLessons": 18,
     "advantages": [
-      "Respiration et pauses d’attention pour préparer une action",
-      "Méditations guidées pour explorer ses envies",
-      "Exercices pour clarifier et tester un projet",
-      "Feuille de route personnelle à 90 jours"
+      "18 leçons complètes pour une transformation en profondeur",
+      "Exercices progressifs pour clarifier, tester et ancrer ton projet",
+      "Méditations guidées pour explorer tes envies et lever les blocages",
+      "Respiration et pauses d’attention avant chaque passage à l’action",
+      "Feuille de route personnelle à 90 jours, prête à suivre",
+      "Bilans hebdomadaires pour ajuster et célébrer tes avancées",
+      "Carnet complet exportable avec tous tes apprentissages",
+      "Outils pour transformer une idée floue en projet concret",
+      "Communauté privée d’entraide entre participantes",
+      "Suivi personnalisé par email à chaque étape clé du parcours"
     ],
     "modules": [
       {

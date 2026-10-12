@@ -26,7 +26,6 @@ Le prix n'entre pas dans la décision. Le mini-bilan n'évalue aucune pathologie
 | Personnalisation | Format selon le temps choisi | IA adaptant une leçon du programme choisi |
 | Progression | Carnet local et notes facultatives | Stockage de compte avec autorisations |
 | Bilan | Export des notes et exercices réalisés | Synthèse IA uniquement après consentement |
-| Audio | Synthèse vocale du navigateur | Option de fichiers audio préparés si nécessaire |
 | Livraison | Accès immédiat dans le navigateur | Webhook de paiement signé, activation idempotente |
 | Assistance courante | FAQ claire | Aide automatique limitée au fonctionnement du service |
 | Rappels | Aucun envoi | Messages consentis et désinscription autonome |

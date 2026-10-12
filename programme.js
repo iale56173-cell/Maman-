@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   'use strict';
   const $=id=>document.getElementById(id);if(!$('programme'))return;
   const core=window.BoumProgramme, KEY='boum-formations-v3';
-  let state=core.fresh(),resetPending=false,audioSerial=0;
+  let state=core.fresh(),resetPending=false;
   const announce=text=>{$('notebookStatus').textContent=text;};
-  function stopAudio(){audioSerial++;if('speechSynthesis'in window)window.speechSynthesis.cancel();$('audioStatus').textContent='';$('listenLesson').textContent='Écouter la leçon';}
+  function stopAudio(){}
   function save(){
     try{
       if(state.remember){localStorage.setItem(KEY,JSON.stringify(state));$('storageStatus').textContent='Carnet enregistré dans ce navigateur, sur cet appareil uniquement.';}
@@ -47,29 +47,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   $('completeLesson').addEventListener('click',()=>{const r=core.record(state);if(r.current!==0)return;const id=core.courses[state.active].lessons[0].id;if(!r.done.includes(id))r.done.push(id);render();announce('Ta première leçon gratuite est terminée. La suite fait partie de la formation complète payante.');});
   for(const [button,direction]of[['previousLesson',-1],['nextLesson',1]])$(button).addEventListener('click',()=>{const r=core.record(state);r.current=Math.max(0,Math.min(1,r.current+direction));stopAudio();render(true);});
   $('paywallBuy').addEventListener('click',()=>{location.href=`formations/${core.courses[state.active].slug}/`;});
-  let selectedVoice='';
-  function populateVoices(){
-    if(!('speechSynthesis'in window)){$('voiceSelect').disabled=true;return;}
-    const rank=v=>/denise|natural|neural|google.*fran/i.test(v.name)?0:/virginie|julie|audrey|amélie|amelie/i.test(v.name)?1:/hortense/i.test(v.name)?2:3;
-    const voices=window.speechSynthesis.getVoices().filter(v=>/^fr/i.test(v.lang)).sort((a,b)=>rank(a)-rank(b));
-    $('voiceSelect').replaceChildren();
-    if(!voices.length){const opt=document.createElement('option');opt.value='';opt.textContent='Voix française du navigateur';$('voiceSelect').append(opt);return;}
-    voices.forEach(v=>{const opt=document.createElement('option');opt.value=v.voiceURI;opt.textContent=v.name.replace(/Microsoft |Google /g,'');$('voiceSelect').append(opt);});
-    if(!voices.some(v=>v.voiceURI===selectedVoice))selectedVoice=voices[0].voiceURI;$('voiceSelect').value=selectedVoice;
-  }
-  $('voiceSelect').addEventListener('change',()=>{stopAudio();selectedVoice=$('voiceSelect').value;});
-  if('speechSynthesis'in window)window.speechSynthesis.addEventListener('voiceschanged',populateVoices);populateVoices();
-  $('listenLesson').addEventListener('click',()=>{
-    if(core.record(state).current!==0)return;
-    if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){$('audioStatus').textContent='La lecture audio est indisponible dans ce navigateur. Le texte reste accessible.';return;}
-    if(window.speechSynthesis.speaking||window.speechSynthesis.pending){stopAudio();$('audioStatus').textContent='Lecture arrêtée.';return;}
-    const l=core.courses[state.active].lessons[0],utterance=new SpeechSynthesisUtterance(`${l.title}… ${l.idea}… ${l.action}`),serial=++audioSerial;
-    const voice=window.speechSynthesis.getVoices().find(v=>v.voiceURI===selectedVoice);if(voice)utterance.voice=voice;
-    utterance.lang=voice?.lang||'fr-FR';utterance.rate=.82;utterance.pitch=1;utterance.volume=.85;
-    const finish=text=>{if(serial===audioSerial){$('audioStatus').textContent=text;$('listenLesson').textContent='Écouter la leçon';}};
-    utterance.onend=()=>finish('Lecture terminée.');utterance.onerror=()=>finish('La lecture n’a pas pu se terminer. Le texte reste disponible.');
-    $('listenLesson').textContent='Arrêter la lecture';$('audioStatus').textContent='Lecture en cours.';window.speechSynthesis.speak(utterance);
-  });
+  
+  
   $('exportNotebook').addEventListener('click',()=>{
     const lines=['BOUM! — Mon carnet de formations','Mes notes et mes exercices',''];
     for(const c of Object.values(core.courses)){const r=state.courses[c.id];if(!r)continue;lines.push(`${c.name} — ${c.title}`,`${r.done.length}/${c.lessons.length} leçons terminées`,'');for(const l of c.lessons){if(r.done.includes(l.id)||r.notes[l.id])lines.push(`${r.done.includes(l.id)?'[FAIT]':'[EN COURS]'} ${l.title}`,`À garder : ${l.output}`,`Ma note : ${r.notes[l.id]||'(aucune note)'}`,'');}const next=c.lessons.find(l=>!r.done.includes(l.id));if(next)lines.push(`Prochaine leçon non terminée : ${next.title}`,next.action,'');}

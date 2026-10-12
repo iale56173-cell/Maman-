@@ -79,7 +79,7 @@
       "Bilans personnels pour mesurer ta progression",
       "Conversations préparées pour les situations du travail et de la maison",
       "Accès illimité à ton rythme, avec relecture possible à tout moment",
-      "Communauté privée d’entraide entre participantes"
+      "Modèles de messages prêts à adapter à tes situations"
     ],
     "modules": [
       {
@@ -139,8 +139,9 @@
       "Bilans hebdomadaires pour ajuster et célébrer tes avancées",
       "Carnet complet exportable avec tous tes apprentissages",
       "Outils pour transformer une idée floue en projet concret",
-      "Communauté privée d’entraide entre participantes",
-      "Suivi personnalisé par email à chaque étape clé du parcours"
+      "Bibliothèque de modèles et de ressources prêts à l’emploi",
+      "Parcours 100 % en autonomie, accessible à tout moment",
+      "Mises à jour du contenu incluses, sans frais supplémentaires"
     ],
     "modules": [
       {
